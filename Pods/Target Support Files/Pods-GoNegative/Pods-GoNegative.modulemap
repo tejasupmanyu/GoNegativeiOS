@@ -1,0 +1,6 @@
+framework module Pods_GoNegative {
+  umbrella header "Pods-GoNegative-umbrella.h"
+
+  export *
+  module * { export * }
+}
