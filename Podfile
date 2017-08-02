@@ -13,4 +13,8 @@ target 'GoNegative' do
 	
 	pod 'IQKeyboardManagerSwift'
 
+	pod 'SDWebImage'
+
+	pod 'ReadMoreTextView'
+
 end

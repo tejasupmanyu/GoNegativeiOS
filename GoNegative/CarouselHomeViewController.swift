@@ -11,74 +11,91 @@ import Firebase
 
 class CarouselHomeViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate, FaveButtonDelegate{
 
-        
-    
     
     @IBOutlet weak var FeedView: UICollectionView!
 
+    //@IBOutlet weak var frontView: UIView!
     @IBOutlet weak var heartButton: FaveButton?
     @IBOutlet weak var shareButton: FaveButton?
     var posts = [Post]()
     var authorsImages = [String]()
+    var finishedLoading = true
     
-    
-    var BackGroundImageArray = ["cover","mainBackground","cover","mainBackground","cover","mainBackground","cover","mainBackground","cover","mainBackground"]
-    var CellTitles = ["Tejas","Shabbir","Shivam","Tejas","Shabbir","Shivam","Tejas","Shabbir","Shivam","VisionArray"]
-    var ArticleHeadings = ["Nigga hua Agwa","Khatarnak Nigga","App is working","Nigga hua Agwa","Khatarnak Nigga","App is working","Nigga hua Agwa","Khatarnak Nigga","App is working","Designed by Tejas Upmanyu"]
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         FeedView.reloadData()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         FeedView.delegate = self
         FeedView.dataSource = self
-                fetchPosts()
+//        SwiftSpinner.useContainerView(frontView)
+//        SwiftSpinner.show(duration: 8, title: "Loading...")
+        
+        fetchPosts()
+        
         
         
     }
     
     func fetchPosts()
     {
+        finishedLoading = false
+        var i = 0
         let DBRef = FIRDatabase.database().reference()
         
         DBRef.child("posts").queryOrderedByKey().observe(.value, with: { (DBSnapshot) in
-            SwiftSpinner.show(duration: 5, title: "Fetching your Favourite posts...")
-            let allPosts = DBSnapshot.value as! [String: AnyObject]
-            print(allPosts)
-            for (_,posts) in allPosts
+            if i == 0
             {
-                print(posts)
-                let individualPost = Post()
-                if let author = posts["author"] as? String, let likes = posts["likes"] as? Int, let postText = posts["storyText"] as? String, let postDate = posts["postDate"] as? String, let postID = posts["postID"] as? String,let urlToPostImage = posts["postImageURL"] as? String, let userID = posts["userID"] as? String{
-                    
-                    
-                    individualPost.author = author
-                    individualPost.likes = likes
-                    individualPost.postDate = postDate
-                    individualPost.postText = postText
-                    individualPost.urlToPostImage = urlToPostImage
-                    individualPost.postID = postID
-                    individualPost.userID = userID
-                    
-                    self.posts.append(individualPost)
-                }
+                SwiftSpinner.show(duration: 3, title: "Fetching your Favourite posts...")
+                i = 1
             }
             
+            self.posts = [Post]()
+            let allPosts = DBSnapshot.value as! [String: AnyObject]
+
+                for (_,posts) in allPosts
+                {
+                    
+                    let individualPost = Post()
+                    if let author = posts["author"] as? String, let likes = posts["likes"] as? Int, let postText = posts["storyText"] as? String, let postDate = posts["postDate"] as? String, let postID = posts["postID"] as? String,let urlToPostImage = posts["postImageURL"] as? String, let userID = posts["userID"] as? String, let postTitle = posts["postTitle"] as? String, let authorImageURL = posts["urlToAuthorImage"] as? String{
+                        
+                        individualPost.author = author
+                        individualPost.likes = likes
+                        individualPost.postDate = postDate
+                        individualPost.postText = postText
+                        individualPost.postTitle = postTitle
+                        individualPost.urlToPostImage = urlToPostImage
+                        individualPost.postID = postID
+                        individualPost.userID = userID
+                        individualPost.urlToAuthorImage = authorImageURL
+                        
+                        if let people = posts["peopleWhoLike"] as? [String: AnyObject]
+                        {
+                            for(_,person) in people
+                            {
+                                individualPost.peopleWhoLiked.append(person as! String)
+                            }
+                        }
+                        
+                        self.posts.append(individualPost)
+                        self.FeedView.reloadData()
+                        self.finishedLoading = true
+                    }
+                    
+
+                }
             
-            print(self.posts)
-            self.FeedView.reloadData()
         })
         
-        
-        DBRef.removeAllObservers()
+               DBRef.removeAllObservers()
+        //self.frontView.removeFromSuperview()
     }
     
     
-    
+   
     
      func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -92,8 +109,28 @@ class CarouselHomeViewController: UIViewController, UICollectionViewDataSource,U
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
             let ArticleCell = collectionView.dequeueReusableCell(withReuseIdentifier: "post", for: indexPath) as! ArticleViewCell
-            ArticleCell.NewsTitle.text = "Post title"
-            ArticleCell.CoverImage.downloadImage(from: self.posts[indexPath.row].urlToPostImage)
+            ArticleCell.NewsTitle.text = self.posts[indexPath.row].postTitle
+            ArticleCell.PostID = self.posts[indexPath.row].postID
+            ArticleCell.CoverImage.sd_setShowActivityIndicatorView(true)
+            ArticleCell.CoverImage.sd_setIndicatorStyle(.whiteLarge)
+            ArticleCell.CoverImage.sd_setImage(with: URL(string: self.posts[indexPath.row].urlToPostImage), placeholderImage: UIImage(named:"Placeholder"), options: [.progressiveDownload,.continueInBackground,.scaleDownLargeImages,])
+            ArticleCell.storyTextView.text = self.posts[indexPath.row].postText
+            ArticleCell.storyTextView.font = UIFont(name: "AvenirNext-Regular" , size: 16)
+            
+        
+           
+            for person in self.posts[indexPath.row].peopleWhoLiked
+            {
+                
+                if person == FIRAuth.auth()!.currentUser!.uid
+                {
+                    ArticleCell.heartButton.isHidden = true
+                    break
+                }
+                
+            }
+            ArticleCell.likesLabel.text = "\(self.posts[indexPath.row].likes!) likes"
+            ArticleCell.ThumbNail.sd_setImage(with: URL(string: self.posts[indexPath.row].urlToAuthorImage), placeholderImage: UIImage(named: "authorPlaceholder"))
             ArticleCell.AuthorNameLabel.text = self.posts[indexPath.row].author
             
         
@@ -126,7 +163,7 @@ class CarouselHomeViewController: UIViewController, UICollectionViewDataSource,U
     }
 
     
-    override func didReceiveMemoryWarning() {
+        override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

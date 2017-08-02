@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B5AB3FE696C768EDFD52985E /* Pods_GoNegative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAA7D033229495829E54C59 /* Pods_GoNegative.framework */; };
+		B9CE7F5618AAFBB7305E97FB /* Pods_GoNegative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F19162AF77A9036FB7B85C /* Pods_GoNegative.framework */; };
 		D614C6DD1EA4DFC600876AF6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614C6DC1EA4DFC600876AF6 /* Post.swift */; };
 		D650C7401EA4B1B0003EF9A6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D650C73C1EA4B1B0003EF9A6 /* Bolts.framework */; };
 		D650C7411EA4B1B0003EF9A6 /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D650C73C1EA4B1B0003EF9A6 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -61,6 +62,8 @@
 		D650C7AD1EA4B25A003EF9A6 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650C79F1EA4B25A003EF9A6 /* Init.swift */; };
 		D650C7AE1EA4B25A003EF9A6 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650C7A01EA4B25A003EF9A6 /* Ring.swift */; };
 		D650C7AF1EA4B25A003EF9A6 /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650C7A11EA4B25A003EF9A6 /* Spark.swift */; };
+		D6CDB0C21EAA469800DA8C68 /* ReadMoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CDB0C11EAA469800DA8C68 /* ReadMoreTextView.swift */; };
+		D6CDB0C41EAA46A300DA8C68 /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CDB0C31EAA46A300DA8C68 /* UITextView+Extensions.swift */; };
 		D6E89A9C1EA4ACFD00C0EAF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6E89A9B1EA4ACFD00C0EAF8 /* Assets.xcassets */; };
 		D6E89A9F1EA4ACFD00C0EAF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6E89A9D1EA4ACFD00C0EAF8 /* LaunchScreen.storyboard */; };
 		D6E89AA71EA4AE1100C0EAF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6E89AA61EA4AE1100C0EAF8 /* GoogleService-Info.plist */; };
@@ -87,6 +90,7 @@
 		6FAA7D033229495829E54C59 /* Pods_GoNegative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoNegative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		719BE0771278BC9EBC9E0AC9 /* Pods-GoNegative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoNegative.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoNegative/Pods-GoNegative.debug.xcconfig"; sourceTree = "<group>"; };
 		74A188D8378AD6C7502758A7 /* Pods-GoNegative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoNegative.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoNegative/Pods-GoNegative.release.xcconfig"; sourceTree = "<group>"; };
+		C1F19162AF77A9036FB7B85C /* Pods_GoNegative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoNegative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D614C6DC1EA4DFC600876AF6 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D650C73C1EA4B1B0003EF9A6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		D650C73D1EA4B1B0003EF9A6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 		D650C7A01EA4B25A003EF9A6 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		D650C7A11EA4B25A003EF9A6 /* Spark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
 		D650C7B01EA4B641003EF9A6 /* GoNegative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoNegative.entitlements; sourceTree = "<group>"; };
+		D6CDB0C11EAA469800DA8C68 /* ReadMoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMoreTextView.swift; sourceTree = "<group>"; };
+		D6CDB0C31EAA46A300DA8C68 /* UITextView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		D6E89A911EA4ACFD00C0EAF8 /* GoNegative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoNegative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6E89A9B1EA4ACFD00C0EAF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6E89A9E1EA4ACFD00C0EAF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				D650C7461EA4B1B0003EF9A6 /* FBSDKShareKit.framework in Frameworks */,
 				D650C7441EA4B1B0003EF9A6 /* FBSDKLoginKit.framework in Frameworks */,
 				D650C7401EA4B1B0003EF9A6 /* Bolts.framework in Frameworks */,
+				B9CE7F5618AAFBB7305E97FB /* Pods_GoNegative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +347,9 @@
 			children = (
 				D650C74B1EA4B1DF003EF9A6 /* ArticleViewCell.swift */,
 				D650C74C1EA4B1DF003EF9A6 /* CarouselCollectionViewCell.swift */,
+				D614C6DC1EA4DFC600876AF6 /* Post.swift */,
+				D6CDB0C11EAA469800DA8C68 /* ReadMoreTextView.swift */,
+				D6CDB0C31EAA46A300DA8C68 /* UITextView+Extensions.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -351,6 +361,7 @@
 				D650C73D1EA4B1B0003EF9A6 /* FBSDKCoreKit.framework */,
 				D650C73E1EA4B1B0003EF9A6 /* FBSDKLoginKit.framework */,
 				D650C73F1EA4B1B0003EF9A6 /* FBSDKShareKit.framework */,
+				C1F19162AF77A9036FB7B85C /* Pods_GoNegative.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -383,7 +394,6 @@
 				D650C7B31EA4B918003EF9A6 /* View Controllers */,
 				D6E89A9B1EA4ACFD00C0EAF8 /* Assets.xcassets */,
 				D650C78C1EA4B1F7003EF9A6 /* Main.storyboard */,
-				D614C6DC1EA4DFC600876AF6 /* Post.swift */,
 				D6E89A9D1EA4ACFD00C0EAF8 /* LaunchScreen.storyboard */,
 				D6E89AA01EA4ACFD00C0EAF8 /* Info.plist */,
 			);
@@ -533,6 +543,7 @@
 				D650C7AC1EA4B25A003EF9A6 /* Geometry.swift in Sources */,
 				D650C7A41EA4B25A003EF9A6 /* CDAlertHeaderView.swift in Sources */,
 				D650C7781EA4B1DF003EF9A6 /* IQUIViewController+Additions.swift in Sources */,
+				D6CDB0C21EAA469800DA8C68 /* ReadMoreTextView.swift in Sources */,
 				D650C7AE1EA4B25A003EF9A6 /* Ring.swift in Sources */,
 				D650C7821EA4B1DF003EF9A6 /* IQToolbar.swift in Sources */,
 				D650C7871EA4B1DF003EF9A6 /* ProfileViewController.swift in Sources */,
@@ -544,6 +555,7 @@
 				D650C78A1EA4B1DF003EF9A6 /* SwiftSpinner.swift in Sources */,
 				D650C7AB1EA4B25A003EF9A6 /* Easing.swift in Sources */,
 				D650C7881EA4B1DF003EF9A6 /* RoundButton.swift in Sources */,
+				D6CDB0C41EAA46A300DA8C68 /* UITextView+Extensions.swift in Sources */,
 				D650C77E1EA4B1DF003EF9A6 /* IQTextView.swift in Sources */,
 				D650C7711EA4B1DF003EF9A6 /* CarouselCollectionViewCell.swift in Sources */,
 				D650C77C1EA4B1DF003EF9A6 /* IQKeyboardManager.swift in Sources */,

@@ -18,6 +18,8 @@ class Post: NSObject {
     var postText : String!
     var postDate : String!
     var urlToAuthorImage: String!
+    var postTitle : String!
     
-
+    var peopleWhoLiked : [String] =   [String]()
+    
 }
